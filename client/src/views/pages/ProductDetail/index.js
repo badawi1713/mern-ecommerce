@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../../components/Rating";
 import productData from "../../../assets/utils/dummyProducts";
 
 const ProductDetail = ({ match }) => {
-  const product = productData.find((item) => item._id === match.params.id);
+  // const product = productData.find((item) => item._id === match.params.id);
+  const [product, setProduct] = useState({});
+  useEffect(() => {
+    const productDetail = async () => {
+      const response = await Axios.get(`/api/v1/products/${match.params.id}`);
+      try {
+        console.log(response);
+        setProduct(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    productDetail();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
