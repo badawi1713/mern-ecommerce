@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "description": "Build server or backend codebase with Express.js for proshop web",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data:import": "node database/seeder",
+    "data:destroy": "node database/seeder -d"
   },
   "author": "dzaky.badawi@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.9",
     "morgan": "^1.10.0",

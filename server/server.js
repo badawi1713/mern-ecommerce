@@ -1,8 +1,18 @@
-const express = require("express");
+import express from "express";
+import dotenv from "dotenv";
+import bodyParser from "body-parser";
+import logger from "morgan";
+import colors from "colors";
+
+import connectDB from "./config/databaseConnection.js";
+import products from "./data/products.js";
+
 const app = express();
-const products = require("./data/dummyProducts");
-const bodyParser = require("body-parser");
-const logger = require("morgan");
+dotenv.config();
+
+const PORT = process.env.PORT || 5000;
+
+connectDB();
 
 app.use(bodyParser.json());
 app.use(
@@ -26,6 +36,8 @@ app.get("/api/v1/products/:id", (req, res, next) => {
   res.json(product);
 });
 
-app.listen(5000, () => {
-  console.log("Server running on localhost:5000");
+app.listen(PORT, () => {
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+  );
 });
