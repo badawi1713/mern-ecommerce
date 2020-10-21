@@ -52,7 +52,7 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    countIntStock: {
+    countInStock: {
       type: Number,
       required: true,
       default: 0,
@@ -63,5 +63,5 @@ const productSchema = mongoose.Schema(
   }
 );
 
-const ProductModal = mongoose.model("Product", productSchema);
-export default ProductModal;
+const ProductModel = mongoose.model("Product", productSchema);
+export default ProductModel;

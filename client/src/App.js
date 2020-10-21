@@ -5,6 +5,8 @@ import Header from "./views/components/Header";
 import Footer from "./views/components/Footer";
 import Home from "./views/pages/Home";
 import ProductDetail from "./views/pages/ProductDetail";
+import Cart from "./views/pages/Cart";
+
 const App = () => {
   return (
     <Router>
@@ -12,7 +14,8 @@ const App = () => {
       <main className="py-3">
         <Container>
           <Route path="/" exact component={Home} />
-          <Route path="/product/:id" exact component={ProductDetail} />
+          <Route path="/product/:id" component={ProductDetail} />
+          <Route path="/cart/:id?" component={Cart} />
           {/* <Route component={NoMatch} /> */}
         </Container>
       </main>
