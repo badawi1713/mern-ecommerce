@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Header from "./views/components/Header";
 import Footer from "./views/components/Footer";
+import Login from "./views/pages/Login";
+import Register from "./views/pages/Register";
+import Profile from "./views/pages/Profile";
 import Home from "./views/pages/Home";
 import ProductDetail from "./views/pages/ProductDetail";
 import Cart from "./views/pages/Cart";
@@ -14,6 +17,9 @@ const App = () => {
       <main className="py-3">
         <Container>
           <Route path="/" exact component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/profile" exact component={Profile} />
           <Route path="/product/:id" component={ProductDetail} />
           <Route path="/cart/:id?" component={Cart} />
           {/* <Route component={NoMatch} /> */}
