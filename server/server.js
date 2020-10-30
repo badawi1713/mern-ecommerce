@@ -9,6 +9,7 @@ import connectDB from "./config/databaseConnection.js";
 
 import productRoutes from "./src/routes/productRoutes.js";
 import userRoutes from "./src/routes/userRoutes.js";
+import orderRoutes from "./src/routes/orderRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -33,6 +34,7 @@ app.get("/", (req, res, next) => {
 
 app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/orders", orderRoutes);
 
 // error middleware
 app.use(notFound);

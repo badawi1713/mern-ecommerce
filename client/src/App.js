@@ -9,7 +9,9 @@ import Profile from "./views/pages/Profile";
 import Home from "./views/pages/Home";
 import ProductDetail from "./views/pages/ProductDetail";
 import Cart from "./views/pages/Cart";
-
+import Shipping from "./views/pages/Shipping";
+import Payment from "./views/pages/Payment";
+import PlaceOrder from "./views/pages/PlaceOrder";
 const App = () => {
   return (
     <Router>
@@ -22,6 +24,9 @@ const App = () => {
           <Route path="/profile" exact component={Profile} />
           <Route path="/product/:id" component={ProductDetail} />
           <Route path="/cart/:id?" component={Cart} />
+          <Route path="/shipping" component={Shipping} />
+          <Route path="/payment" component={Payment} />
+          <Route path="/placeorder" component={PlaceOrder} />
           {/* <Route component={NoMatch} /> */}
         </Container>
       </main>
