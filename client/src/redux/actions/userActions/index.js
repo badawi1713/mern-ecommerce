@@ -2,6 +2,7 @@ import {
   USER_DETAILS_FAIL,
   USER_DETAILS_REQUEST,
   USER_DETAILS_SUCCESS,
+  USER_DETAILS_RESET,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -13,6 +14,9 @@ import {
   USER_UPDATED_PROFILE_REQUEST,
   USER_UPDATED_PROFILE_SUCCESS,
 } from "../../constants/userConstants";
+
+import { ORDER_USER_LIST_RESET } from "../../constants/orderConstants";
+
 import axios from "axios";
 
 export const loginAction = (email, password) => async (dispatch) => {
@@ -56,6 +60,12 @@ export const logoutAction = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({
     type: USER_LOGOUT,
+  });
+  dispatch({
+    type: USER_DETAILS_RESET,
+  });
+  dispatch({
+    type: ORDER_USER_LIST_RESET,
   });
 };
 

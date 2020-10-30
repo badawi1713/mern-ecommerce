@@ -12,6 +12,8 @@ import Cart from "./views/pages/Cart";
 import Shipping from "./views/pages/Shipping";
 import Payment from "./views/pages/Payment";
 import PlaceOrder from "./views/pages/PlaceOrder";
+import Order from "./views/pages/Order";
+
 const App = () => {
   return (
     <Router>
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="/shipping" component={Shipping} />
           <Route path="/payment" component={Payment} />
           <Route path="/placeorder" component={PlaceOrder} />
+          <Route path="/order/:id" component={Order} />
+
           {/* <Route component={NoMatch} /> */}
         </Container>
       </main>
