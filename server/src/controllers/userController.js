@@ -48,6 +48,11 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
+const getAllUsers = asyncHandler(async (req, res) => {
+  const users = await UserModel.find();
+  res.json(users);
+});
+
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await UserModel.findById(req.user._id);
   if (user) {
@@ -86,4 +91,23 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, registerUser, getUserProfile, updateUserProfile };
+const deleteUser = asyncHandler(async (req, res) => {
+  const user = await UserModel.findById(req.params._id);
+  console.log(req.params._id);
+  if (user) {
+    await user.remove();
+    res.json({ message: "User removed" });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+export {
+  getAllUsers,
+  authUser,
+  registerUser,
+  getUserProfile,
+  updateUserProfile,
+  deleteUser,
+};
